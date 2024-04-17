@@ -13,8 +13,8 @@ const Footer = () => {
           ducimus, nulla at inventore corrupti animi ipsa molestiae sequi
           laudantium debitis nostrum a cum modi!
         </p>
-        <input type="text" name="text" placeholder="Enter your email" className="ml-96 " />
-        <button className="pt-0-5 pb-0.5 bg-red-900">Subscribe</button>
+        <input type="text" name="text" placeholder="Enter your email" className=" " />
+        <button className="">Subscribe</button>
         <div className="footer-section bg-blue-600 ml-20 mr-20 mt-20">
           <p className="">Coinfied</p>
           <p className="">
