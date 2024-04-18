@@ -1,11 +1,10 @@
 import React from "react";
-// import bit from "../images/images.jpg";
+
 
 const Footer = () => {
   return (
     <div>
       <div className="footer bg-blue-900 text-white">
-        {/* <img src={bit} alt="bitcoin img" className="ml-40 pt-40"/> */}
         <p className="text-blue-200 text-center pt-20">Start Now</p>
         <p className="font-bold pt-2 pl-20 text-center ">Sign up to learn more</p>
         <p className="text-center">
