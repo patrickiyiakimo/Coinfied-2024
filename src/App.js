@@ -4,27 +4,31 @@ import Hero from "./components/Hero";
 import Market from "./components/Market";
 import Navbar from "./components/Navbar";
 
+
 function App() {
   return (
     <div className="App">
       <div className="nav">
         <Navbar />
       </div>
-      <div className="hero">
+      <div className="nav">
         <Hero />
       </div>
-      <div className="about">
+      <div className="nav">
         <About />
       </div>
-      <div className="market">
+      <div className="nav">
         <Market />
       </div>
-      <div className="footer">
+      <div className="nav">
         <Footer />
       </div>
-     
     </div>
   );
 }
 
 export default App;
+
+
+
+

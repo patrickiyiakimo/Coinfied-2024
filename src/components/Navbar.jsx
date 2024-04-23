@@ -6,17 +6,19 @@ const Navbar = () => {
           <li>
             <h1 className="text-4xl font-bold px-10 pr-20">Coinfied</h1>
           </li>
+
           <li className="px-10 py-2 pl-32 hover:text-blue-300 cursor-pointer hover:underline ">
-            Home
+            <a href="#Home"> Home</a>
+          </li>
+
+          <li className="px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
+            <a href="#About"> About</a>
           </li>
           <li className="px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
-            About
-          </li>
-          <li className="px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
-            Market
+            <a href="#Market"> Market</a>
           </li>
           <li className="px-10 py-2 pr-40 hover:text-blue-300 cursor-pointer hover:underline ">
-            Contact
+            <a href="#Footer">Contact</a>
           </li>
           <li className="pl-40 py-2 hover:text-blue-300 cursor-pointer">
             <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 rounded hover:from-gray-500 hover:to-blue-500">

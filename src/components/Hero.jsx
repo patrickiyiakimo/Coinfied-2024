@@ -1,6 +1,8 @@
+// import { Link } from "react-scroll";
+
 const Hero = () => {
   return (
-    <div className="bg-sky-900 border-t">
+    <div className="bg-sky-900 border-t" id="Hero">
       <div>
         <p className="text-white text-6xl font-bold ml-20 py-20 font-Gill">
           Best place to buy and <br />
