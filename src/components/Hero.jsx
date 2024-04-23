@@ -1,4 +1,4 @@
-// import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -23,7 +23,7 @@ const Hero = () => {
           Get Started
         </button>
         <button className="ml-10 border border-blue-500 border-blue-500 text-white font-bold py-2 px-4 rounded bg-transparent">
-          Watch Tutorial
+          <Link to="myplayer">Watch Tutorial</Link>
         </button>
       </div>
     </div>
