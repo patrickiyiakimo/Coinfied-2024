@@ -10,7 +10,7 @@ const Navbar = () => {
           </li>
 
           <li className="px-10 py-2 pl-32 hover:text-blue-300 cursor-pointer hover:underline ">
-            <Link to="Hero" spy={true} smooth={true} offset={50} duration={500}>
+            <Link to="Hero" spy={true} smooth={true} offset={0} duration={500}>
               Home
             </Link>
           </li>
@@ -20,7 +20,7 @@ const Navbar = () => {
               to="About"
               spy={true}
               smooth={true}
-              offset={-100}
+              offset={-90}
               duration={500}
             >
               About
@@ -32,7 +32,7 @@ const Navbar = () => {
               to="Market"
               spy={true}
               smooth={true}
-              offset={-100}
+              offset={-90}
               duration={500}
             >
               Market
@@ -44,7 +44,7 @@ const Navbar = () => {
               to="Footer"
               spy={true}
               smooth={true}
-              offset={-100}
+              offset={-90}
               duration={500}
             >
               Subscribe
