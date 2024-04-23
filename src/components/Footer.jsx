@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div id='Footer'>
-      <div className="footer bg-blue-900 text-white">
+      <div className="footer bg-gray-700 text-white">
         <p className="font-bold pt-10 text-center ">Sign up to learn more</p>
         <p className="text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
@@ -25,7 +25,7 @@ const Footer = () => {
           </button>
         </div>
 
-        <div className=" text-center mt-20 bg-blue-800 pt-5 pb-5 shadow-lg p-6">
+        <div className=" text-center mt-20 bg-gray-600 pt-5 pb-5 shadow-lg p-6">
           <p>©2024 Coinfied. All rights Reserved</p>
         </div>
       </div>

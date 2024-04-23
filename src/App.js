@@ -2,6 +2,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Market from "./components/Market";
+import MyPlayer from "./components/MyPlayer";
 import Navbar from "./components/Navbar";
 
 
@@ -22,6 +23,9 @@ function App() {
       </div>
       <div className="nav">
         <Footer />
+      </div>
+      <div className="video">
+        <MyPlayer />
       </div>
     </div>
   );
