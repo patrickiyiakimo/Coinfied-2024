@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
+import Marquee from "react-fast-marquee";
+
 
 const Hero = () => {
   return (
-    <div className="bg-sky-900 border-t pt-20" id="Hero">
+    <div className="bg-gray-900 border-t pt-20" id="Hero">
       <div>
         <p className="text-white text-6xl font-bold ml-20 py-20 font-Gill">
           Best place to buy and <br />
           sell <span className="text-blue-500">Crypto Currency</span> <br />
           assets
         </p>
+        <div>
+          
+        </div>
         <p className="text-white ml-20">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
           dignissimos reiciendis,
@@ -19,12 +24,14 @@ const Hero = () => {
           <br /> itaque? Quam in ratione modi debitis vero temporibus dolor
           libero molestias!
         </p>
-        <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 rounded hover:from-gray-500 hover:to-blue-500 ml-36 mt-20 mb-20">
-          Get Started
-        </button>
-        <button className="ml-10 border border-blue-500 border-blue-500 text-white font-bold py-2 px-4 rounded bg-transparent">
-          <Link to="myplayer">Watch Tutorial</Link>
-        </button>
+        <Marquee>
+          <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 rounded hover:from-gray-500 hover:to-blue-500 ml-36 mt-20 mb-20">
+            Get Started
+          </button>
+          <button className="ml-10 border border-blue-500 border-blue-500 text-white font-bold py-2 px-4 rounded bg-transparent">
+            <Link to="myplayer">Watch Tutorial</Link>
+          </button>
+        </Marquee>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const Market = () => {
   );
 
   return (
-    <div id="Market" className="bg-black pb-20">
+    <div id="Market" className="bg-gray-900 pb-20">
       <div className="">
         <p className="text-white font-bold text-center pt-20 text-4xl">
           Market Price
@@ -59,7 +59,7 @@ const Market = () => {
         );
       })}
     </div>
-    );
+  );
     
 };
 
