@@ -64,7 +64,7 @@ const Market = () => {
           />
         );
       })}
-      <Pagination totalPosts={coins.length} postsPerPage={postsPerPage} setCurrentPage={ setCurrentPage} />
+      <Pagination totalPosts={coins.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </div>
   );
 };
