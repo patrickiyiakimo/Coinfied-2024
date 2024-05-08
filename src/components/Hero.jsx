@@ -14,7 +14,7 @@ const Hero = () => {
           <img src={ethereum} alt="ethereum image" className="w-10 flex" />
           <img src={tetherusdt} alt="tetherusdt image" className="w-10 flex" />
         </Marquee> */}
-        <p className="text-white text-6xl font-bold ml-20 py-20 font-Gill">
+        <p className=" text-white text-6xl font-bold ml-20 py-20 font-Gill ">
           Best place to buy and <br />
           sell <span className="text-blue-500">Crypto Currency</span> <br />
           assets

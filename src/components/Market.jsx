@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Coin from "./Coin";
+import Pagination from "./Pagination";
+const url =
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
 
 const Market = () => {
-
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
     axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
+      .get(url)
       .then((res) => {
         setCoins(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = coins.slice(firstPostIndex, lastPostIndex);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -45,7 +51,7 @@ const Market = () => {
           />
         </form>
       </div>
-      {fillteredCoins.map((coin) => {
+      {currentPosts.map((coin) => {
         return (
           <Coin
             key={coin.id}
@@ -58,10 +64,9 @@ const Market = () => {
           />
         );
       })}
+      <Pagination totalPosts={coins.length} postsPerPage={postsPerPage} setCurrentPage={ setCurrentPage} />
     </div>
   );
-    
 };
 
 export default Market;
- 
