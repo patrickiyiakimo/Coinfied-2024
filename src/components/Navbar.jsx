@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 const Navbar = () => {
   return (
     <div className="">
-      <div className="bg-sky-800 text-white text-sm py-4 font-Gill fixed top-0 w-full z-10 ">
+      <div className="bg-gray-800 text-white text-sm py-4 font-Gill fixed top-0 w-full z-10 ">
         <ul className="flex">
           <li>
             <h1 className="text-4xl font-bold px-10 pr-20">Coinfied</h1>
