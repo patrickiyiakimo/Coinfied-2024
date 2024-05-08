@@ -1,15 +1,26 @@
 import React from "react";
-// import { Link } from "react-scroll";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Footer = () => {
 
-  // const handleClick = () => {
-  //   alert('Thanks for subscribing')
-   
-  // }
+  const subscribe = () => {
+    toast.success("Thanks For Subscribing!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
+  }
+  
   return (
-    <div id='Footer'>
+    <div id="Footer">
       <div className="footer bg-gray-700 text-white">
         <p className="font-bold pt-10 text-center ">Sign up to learn more</p>
         <p className="text-center">
@@ -26,7 +37,7 @@ const Footer = () => {
             className="ml-96 bg-blue-500 mt-5 mb-5 text-pink-400 py-2 px-4  "
             style={{ marginLeft: 500 }}
           />
-          <button onClick={() => alert('Thank you for subscribing.....')} className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 hover:from-gray-500 hover:to-blue-500">
+          <button onClick={subscribe } className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 hover:from-gray-500 hover:to-blue-500">
             Subscribe
           </button>
         </div>
@@ -35,6 +46,18 @@ const Footer = () => {
           <p>©2024 Coinfied. All rights Reserved</p>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
