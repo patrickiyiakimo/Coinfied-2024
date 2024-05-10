@@ -6,9 +6,10 @@ import "react-toastify/dist/ReactToastify.css";
 const Footer = () => {
   const [email, setEmail] = React.useState('')
   
-
   const handleEmailChange = (e) => {
+    e.preventDefault();
     setEmail(e.target.value);
+    console.log(email)
   }
   
   const subscribe = () => {
