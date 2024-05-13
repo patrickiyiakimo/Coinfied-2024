@@ -1,11 +1,11 @@
 import undraw from "../images/undraw_Bitcoin_re_urgq.png";
-// import undraw_eth from "../images/undraw_Ether_re_y7ft.png";
-// import { Link } from "react-scroll";
+
 
 const About = () => {
+  
   return (
-    <div className="bg-gray-900" id="About">
-      <div>
+    <div className="bg-gray-900 About">
+      <div className="About">
         <p className="text-blue-500 ml-80 font-bold pl-80 pt-10 pb-5 text-4xl">
           About Us
         </p>
@@ -41,9 +41,6 @@ const About = () => {
           commitment to regulatory compliance ensures a trustworthy and
           compliant trading environment.
         </p>
-      </div>
-      <div>
-        {/* <img src={undraw_eth} alt="Eth-pics" className="w-80 h-80 ml-96"/> */}
       </div>
     </div>
   );

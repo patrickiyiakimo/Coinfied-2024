@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
+
 const Faq = () => {
+    
   const initialFaqState = [
     {
       question: "What is Coinfied?",
@@ -59,7 +61,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="faq bg-gray-900 px-40 py-20 text-white">
+    <div className="faq faq bg-gray-900 px-40 py-20 text-white">
       <h1 className="font-bold text-blue-500 text-4xl text-center ">FAQ</h1>
       <p className="font-bold text-2xl text-center mb-20">
         Frequently Asked Questions

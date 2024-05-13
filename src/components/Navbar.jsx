@@ -1,5 +1,6 @@
 import { Link } from "react-scroll";
 
+
 const Navbar = () => {
   return (
     <div className="">
