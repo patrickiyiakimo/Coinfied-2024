@@ -5,42 +5,42 @@ const Faq = () => {
     {
       question: "What is Coinfied?",
       answer:
-        "A URL shortener is a tool that converts long and complex URLs into shorter, more manageable links. it makes sharing links easier and can also provide tracking and analytics features.",
+        "Coinfied is a cutting-edge web application designed to provide users with a seamless experience for buying and selling cryptocurrency. As the premier destination for crypto enthusiasts and investors, Coinfied offers a range of features tailored to meet the needs of both beginners and experienced traders.",
       id: 1,
       isAnswerVisible: false,
     },
     {
       question: "How do I use Coinfied?",
       answer:
-        "Using a URL shortener is simple. Just paste your long URL into the provided input, click the 'Shorten' button, and you'll get a shortened link that you can share.",
+        "Create an account on Coinfied's website and complete any necessary verification steps. Deposit funds into your account via bank transfer, card, or cryptocurrency transfer. Explore the platform to familiarize yourself with its features. Buy cryptocurrency by selecting the asset, specifying the amount, and confirming the transaction.",
       id: 2,
       isAnswerVisible: false,
     },
     {
       question: "Can I customize Coinfied?",
       answer:
-        "Yes, you can customize your short links with a URL shortener that supports custom aliases. This feature allows you to create branded and memorable short URLs.",
+        "Certainly! You can customize Coinfied according to your preferences. This could involve adjusting the user interface, setting trading preferences, managing your portfolio, configuring notification settings, enhancing security measures, and even customizing language and localization options.",
       id: 3,
       isAnswerVisible: false,
     },
     {
       question: "Are there analytics for Coinfied?",
       answer:
-        "Many URL shorteners provide analytics features, allowing you to track the performance of your short links. You can see metrics such as click-through rate, geographic location of clicks, and more.",
+        "Yes, Coinfied likely offers analytics tools to assist users in making informed decisions when trading cryptocurrency. These tools may include market data such as real-time and historical price charts, trading volume, and market trends. Additionally, Coinfied may provide technical analysis indicators, fundamental analysis metrics, portfolio analytics, news feeds, and sentiment analysis to help ",
       id: 4,
       isAnswerVisible: false,
     },
     {
       question: "Are there limitations to Coinfied?",
       answer:
-        "The limit to the number of links you can shorten depends on the specific URL shortening service you're using. Check the service's documentation for information on any limitations.",
+        "Coinfied, like any platform, may have its set of limitations that users should consider. Regulatory compliance is a factor, potentially restricting certain features or services in specific regions. Trading features could also have limitations, such as trading pairs, order types, or asset liquidity.",
       id: 5,
       isAnswerVisible: false,
     },
     {
       question: "How secure is Coinfied?",
       answer:
-        "While shortened URLs are generally safe to use, be cautious when clicking on them, especially from untrusted sources. Some malicious actors may use URL shorteners to disguise harmful links.",
+        "Coinfied prioritizes security to safeguard user accounts and assets. Various measures are implemented, including encryption protocols, secure login procedures, and robust authentication mechanisms. Additionally, Coinfied likely employs industry-standard security practices to protect against potential threats like hacking, phishing, and unauthorized access. Despite these measures, no system is entirely immune to risks.",
       id: 6,
       isAnswerVisible: false,
     },
@@ -61,7 +61,7 @@ const Faq = () => {
   return (
     <div className="faq bg-gray-900 px-40 py-20 text-white">
       <h1 className="font-bold text-blue-500 text-4xl text-center ">FAQ</h1>
-      <p className="font-bold text-2xl text-center mb-10">
+      <p className="font-bold text-2xl text-center mb-20">
         Frequently Asked Questions
       </p>
       {faq.map((item) => (
