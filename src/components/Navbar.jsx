@@ -37,6 +37,11 @@ const Navbar = () => {
               Market
             </Link>
           </li>
+          <li className="px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
+            <Link to="Faq" spy={true} smooth={true} offset={-90} duration={500}>
+              FAQ
+            </Link>
+          </li>
 
           <li className="px-10 py-2 pr-40 hover:text-blue-300 cursor-pointer hover:underline ">
             <Link
@@ -50,11 +55,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="pl-40 py-2 hover:text-blue-300 cursor-pointer">
-            <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 rounded hover:from-gray-500 hover:to-blue-500">
+            <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 rounded mr-60 hover:from-gray-500 hover:to-blue-500">
               Download App
             </button>
           </li>
-          
         </ul>
       </div>
     </div>

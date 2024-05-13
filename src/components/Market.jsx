@@ -36,10 +36,10 @@ const Market = () => {
   return (
     <div id="Market" className="bg-gray-900 pb-20">
       <div className="">
-        <p className="text-white font-bold text-center pt-20 text-4xl">
+        <p className="text-blue-500 font-bold text-center pt-20 text-4xl">
           Market Price
         </p>
-        <p className="text-white text-center pt-5 text-2xl">
+        <p className="text-white font-bold text-center pt-5 text-2xl">
           Search a currency
         </p>
         <form className="flex justify-center items-center">
@@ -65,7 +65,12 @@ const Market = () => {
           />
         );
       })}
-      <Pagination totalPosts={coins.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      <Pagination
+        totalPosts={coins.length}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </div>
   );
 };

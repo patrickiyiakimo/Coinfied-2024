@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import Marquee from "react-fast-marquee";
 // import bitcoin from "../images/bitcoin.png"
 // import ethereum from "../images/ethereum.png"
@@ -28,7 +28,7 @@ const Hero = () => {
             Get Started
           </button>
           <button className="ml-10 border border-blue-500 border-blue-500 text-white font-bold py-2 px-4 rounded bg-transparent">
-            <Link to="myplayer">Watch Tutorial</Link>
+          Watch Tutorial
           </button>
       </div>
     </div>
