@@ -2,18 +2,17 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Footer = () => {
-  const [email, setEmail] = React.useState('')
-  
+  const [email, setEmail] = React.useState("");
+
   const handleEmailChange = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
-    console.log(email)
-  }
-  
+    console.log(email);
+  };
+
   const subscribe = () => {
-    if (email.trim() === '') {
+    if (email.trim() === "") {
       toast.error("Please enter your email", {
         position: "top-center",
         autoClose: 5000,
@@ -23,7 +22,7 @@ const Footer = () => {
         draggable: true,
         progress: undefined,
         theme: "dark",
-      })
+      });
       return;
     }
     toast.success("Thanks For Subscribing!", {
@@ -36,20 +35,16 @@ const Footer = () => {
       progress: undefined,
       theme: "dark",
     });
+  };
 
-    
-
-  }
-  
   return (
     <div id="Footer">
       <div className="footer bg-gray-700 text-white">
         <p className="font-bold pt-10 text-center ">Sign up to learn more</p>
         <p className="text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          ducimus, nulla at inventore <br />
-          corrupti animi ipsa molestiae sequi laudantium debitis nostrum a cum
-          modi!
+          To sign up for Coinfied, visit the website, <br/>fill out the registration
+          form, verify your email, complete any additional steps, and log in to
+          your account.
         </p>
         <div className="justify-center items-center">
           <input
@@ -60,7 +55,10 @@ const Footer = () => {
             className="ml-96 bg-blue-500 mt-5 mb-5 text-white py-2 px-4 "
             style={{ marginLeft: 500 }}
           />
-          <button onClick={subscribe } className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 hover:from-gray-500 hover:to-blue-500">
+          <button
+            onClick={subscribe}
+            className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 hover:from-gray-500 hover:to-blue-500"
+          >
             Subscribe
           </button>
         </div>
