@@ -21,10 +21,9 @@
 //             <h1 className="text-4xl display:flex font-bold px-5">Coinfied</h1>
 //           </li>
 
-        
 //           {isSetMenu && (
 //             <div className="md:flex md:flex-col space-y-4 space-x-4">
-              
+
 //               <li className="flex-col mt-10 space-y-4 py-2 px-4 text-sm pl-8 md:block px-10 py-2 pl-32 hover:text-blue-300 cursor-pointer hover:underline">
 //                 <Link
 //                   to="Hero"
@@ -90,9 +89,7 @@
 //   );
 // };
 
-
 // export default Navbar;
-
 
 import { Link } from "react-scroll";
 import { FiMenu } from "react-icons/fi";
@@ -101,8 +98,6 @@ import { FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isSetMenu, setIsSetMenu] = React.useState(false);
-
-  
 
   return (
     <div className="sticky top-0 z-10 w-full">
@@ -167,7 +162,7 @@ const Navbar = () => {
             </li>
             <li className="flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
               <Link
-                to="Faq"
+                to="faq"
                 spy={true}
                 smooth={true}
                 offset={-90}
