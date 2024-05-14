@@ -104,7 +104,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-10">
-      <div className="bg-gray-800 text-white text-sm py-4 font-Gill fixed w-full">
+      <div className="bg-gray-800 text-white text-sm py-1 font-Gill fixed w-full">
         <ul className="flex-col flex space-y-4 md:space-y-0 space-x-4 mb-10 md:mb-0 ">
           {/* Menu button for mobile */}
           <button
@@ -112,9 +112,9 @@ const Navbar = () => {
             onClick={() => setIsSetMenu(!isSetMenu)}
           >
             {isSetMenu ? (
-              <FaTimes className="text-3xl ml-80 mt-6 ml-5 absolute" />
+              <FaTimes className="text-3xl ml-96 mt-6 ml-5 absolute" />
             ) : (
-              <FiMenu className="mt-6 text-3xl ml-5 ml-80 absolute" />
+              <FiMenu className="mt-6 text-3xl ml-5 ml-96 absolute" />
             )}
           </button>
           {/* Logo */}
