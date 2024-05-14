@@ -3,7 +3,7 @@ import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Market from "./components/Market";
-// import MyPlayer from "./components/MyPlayer";
+import SignUp from "./components/Signup";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -15,6 +15,9 @@ function App() {
           <Navbar />
         </div>
         <Switch>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
           <Route exact path="/">
             <div className="hero">
               <Hero />
@@ -22,9 +25,6 @@ function App() {
             <div className="about">
               <About />
             </div>
-            {/* <div className="myplayer">
-              <MyPlayer />
-            </div> */}
             <div className="market">
               <Market />
             </div>
@@ -40,6 +40,7 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
 

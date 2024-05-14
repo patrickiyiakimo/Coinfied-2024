@@ -91,10 +91,20 @@
 
 // export default Navbar;
 
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
+// import { FiMenu } from "react-icons/fi";
+// import React from "react";
+// import { FaTimes } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { Link as ScrollLink } from "react-scroll";
+
+
 
 const Navbar = () => {
   const [isSetMenu, setIsSetMenu] = React.useState(false);
@@ -128,7 +138,7 @@ const Navbar = () => {
           >
             {/* Navbar items */}
             <li className="flex-col mt-0 space-y-4 py-2 px-4 text-sm pl-8 md:block px-10 py-2 pl-32 hover:text-blue-300 cursor-pointer hover:underline">
-              <Link
+              <ScrollLink
                 to="Hero"
                 spy={true}
                 smooth={true}
@@ -136,10 +146,10 @@ const Navbar = () => {
                 duration={500}
               >
                 Home
-              </Link>
+              </ScrollLink>
             </li>
             <li className="flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
-              <Link
+              <ScrollLink
                 to="About"
                 spy={true}
                 smooth={true}
@@ -147,10 +157,10 @@ const Navbar = () => {
                 duration={500}
               >
                 About
-              </Link>
+              </ScrollLink>
             </li>
             <li className="flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
-              <Link
+              <ScrollLink
                 to="Market"
                 spy={true}
                 smooth={true}
@@ -158,10 +168,10 @@ const Navbar = () => {
                 duration={500}
               >
                 Market
-              </Link>
+              </ScrollLink>
             </li>
             <li className="flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 hover:text-blue-300 cursor-pointer hover:underline">
-              <Link
+              <ScrollLink
                 to="faq"
                 spy={true}
                 smooth={true}
@@ -169,10 +179,10 @@ const Navbar = () => {
                 duration={500}
               >
                 FAQ
-              </Link>
+              </ScrollLink>
             </li>
             <li className="flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 pr-40 hover:text-blue-300 cursor-pointer hover:underline">
-              <Link
+              <ScrollLink
                 to="Footer"
                 spy={true}
                 smooth={true}
@@ -180,6 +190,17 @@ const Navbar = () => {
                 duration={500}
               >
                 Subscribe
+              </ScrollLink>
+            </li>
+            <li className= "flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 pr-40 text-blue-300 cursor-pointer hover:underline">
+              <Link
+                to="/Signup"
+                // spy={true}
+                // smooth={true}
+                // offset={-90}
+                // duration={500}
+              >
+                Sign Up
               </Link>
             </li>
           </div>
