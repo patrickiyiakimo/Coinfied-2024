@@ -112,14 +112,14 @@ const Navbar = () => {
             onClick={() => setIsSetMenu(!isSetMenu)}
           >
             {isSetMenu ? (
-              <FaTimes className="text-3xl ml-96 mt-6 ml-5 absolute" />
+              <FaTimes className="text-3xl ml-80  mt-6 ml-5 absolute" />
             ) : (
-              <FiMenu className="mt-6 text-3xl ml-5 ml-96 absolute" />
+              <FiMenu className="mt-6 text-3xl  ml-5 ml-80 absolute" />
             )}
           </button>
           {/* Logo */}
           <li>
-            <h1 className="text-4xl font-bold px-1">Coinfied</h1>
+            <h1 className="text-4xl font-bold ">Coinfied</h1>
           </li>
           {/* Navbar items */}
           <div
