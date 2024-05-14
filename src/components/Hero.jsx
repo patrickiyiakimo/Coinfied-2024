@@ -3,12 +3,12 @@ const Hero = () => {
   return (
     <div className="bg-gray-900 border-t pt-20 Hero">
       <div>
-        <p className=" text-white text-6xl font-bold ml-20 py-20 font-Gill ">
+        <p className="text-white  font-3xl md:text-white text-6xl font-bold ml-20 py-20 font-Gill ">
           Best place to buy and <br />
           sell <span className="text-blue-500">Crypto Currency</span> <br />
           assets
         </p>
-        <p className="text-white ml-20">
+        <p className="text-white ml-7 mr-5 md:ml-20">
           Step into the realm of digital currency with Coinfied, where
           possibilities abound <br />
           and opportunities await. Coinfied isn't just another platform; it's
@@ -19,7 +19,7 @@ const Hero = () => {
           you're a seasoned trader or just dipping your toes into the crypto
           waters.
         </p>
-        <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 rounded hover:from-gray-500 hover:to-blue-500 ml-36 mt-20 mb-20">
+        <button className="bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 ml-10 rounded hover:from-gray-500 hover:to-blue-500 md:ml-36 mt-20 mb-20">
           Get Started
         </button>
         <button className="ml-10 border border-blue-500 border-blue-500 text-white font-bold py-2 px-4 rounded bg-transparent">
