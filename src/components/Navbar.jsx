@@ -114,7 +114,7 @@ const Navbar = () => {
             onClick={() => setIsSetMenu(!isSetMenu)}
           >
             {isSetMenu ? (
-              <FaTimes className="text-3xl  ml-80 absolute mt-6 ml-5 " />
+              <FaTimes className="text-3xl text-red-500 ml-80 absolute mt-6 ml-5 " />
             ) : (
               <FiMenu className="mt-6 text-3xl ml-80 absolute ml-5  " />
             )}
