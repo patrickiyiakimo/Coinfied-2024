@@ -3,7 +3,7 @@ const Hero = () => {
   return (
     <div className="bg-gray-900 border-t pt-20 Hero">
       <div>
-        <p className="text-white  font-3xl md:text-white text-6xl font-bold ml-20 py-20 font-Gill ">
+        <p className="text-white font-3xl pb-10 py-10 md:text-white text-4xl md:text-6xl font-bold ml-10 pr-1 md:ml-20 md:py-20 font-Gill ">
           Best place to buy and <br />
           sell <span className="text-blue-500">Crypto Currency</span> <br />
           assets

@@ -121,11 +121,13 @@ const Navbar = () => {
           </button>
           {/* Logo */}
           <li>
-            <h1 className="text-4xl font-bold md:flex">Coinfied</h1>
+            <h1 className="text-4xl font-bold md:flex md:items-center">
+              Coinfied
+            </h1>
           </li>
           {/* Navbar items */}
           <div
-            className={`md:flex md:justify-end space-x-4 ${
+            className={`md:flex md:justify-end space-x-4  ${
               isSetMenu ? "block" : "hidden"
             }`}
           >

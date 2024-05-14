@@ -61,8 +61,8 @@ const Faq = () => {
   };
 
   return (
-    <div className="faq faq bg-gray-900 px-40 py-20 text-white">
-      <h1 className="font-bold text-blue-500 text-4xl text-center ">FAQ</h1>
+    <div className="faq faq  bg-gray-900 md:px-40 md:py-20 text-white">
+      <h1 className="font-bold text-blue-500 text-4xl text-center pb-5">FAQ</h1>
       <p className="font-bold text-2xl text-center mb-20">
         Frequently Asked Questions
       </p>
@@ -78,7 +78,7 @@ const Faq = () => {
               stroke="currentColor"
               className={`w-6 h-6 ${
                 item.isAnswerVisible ? "rotate-180" : ""
-              } absolute mx-96 transition-transform`}
+              } absolute mx-80 cursor-pointer md:mx-96 transition-transform`}
             >
               <path
                 strokeLinecap="round"
@@ -91,10 +91,10 @@ const Faq = () => {
               />
             </svg>
           </span>
-          <h3 className=" font-bold pb-10">{item.question}</h3>
+          <h3 className=" pl-5 font-bold pb-10">{item.question}</h3>
           {item.isAnswerVisible && (
             <span className="transition-all">
-              <p className="bg-gray-800 px-10 py-10 mb-5 rounded text-gray-400 transition-transform duration-500">
+              <p className="bg-gray-800 pr-4 pl-4 pt-5 pb-5 md:px-10 md:py-10 mb-5 rounded text-gray-400 transition-transform duration-500">
                 {item.answer}
               </p>
             </span>

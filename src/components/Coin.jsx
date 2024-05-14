@@ -15,7 +15,7 @@ const Coin = ({
     <div className="pl-5 border-t coin-container pt-5 pb-5">
       <div className="coin-row flex hover:bg-gray-800 hover:text-blue-700 hover:bg-gray-600  ">
         <div className="coin flex items-center">
-          <img className="w-11 mr-4 ml-40" src={image} alt="crypto" />
+          <img className="w-11 mr-4 md:ml-40" src={image} alt="crypto" />
           <p className=" text-white">{name}</p>
           <p className="text-white coin-symbol">{symbol}</p>
         </div>

@@ -42,19 +42,19 @@ const Footer = () => {
   return (
     <div id="Footer">
       <div className="footer bg-gray-700 text-white">
-        <p className="font-bold pt-10 text-center ">Sign up to learn more</p>
+        <p className="font-bold pt-5 md:pt-10 text-center ">Sign up to learn more</p>
         <p className="text-center">
           To sign up for Coinfied, visit the website, <br/>fill out the registration
           form, verify your email, complete any additional steps, and log in to
           your account.
         </p>
-        <div className="justify-center items-center">
+        <div className=" md:justify-center md:items-center">
           <input
             onChange={handleEmailChange}
             type="email"
             value={email}
             placeholder="Enter your email"
-            className="ml-96 bg-blue-500 mt-5 mb-5 text-white py-2 px-4 "
+            className="ml-5 md:ml-96 bg-blue-500 md:mt-5 md:mb-5 text-white py-2 px-4 "
             style={{ marginLeft: 500 }}
           />
           <button
