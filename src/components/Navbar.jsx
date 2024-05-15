@@ -192,7 +192,7 @@ const Navbar = () => {
                 Subscribe
               </ScrollLink>
             </li>
-            <li className= "flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 pr-40 text-blue-300 cursor-pointer hover:underline">
+            <li className= "flex-col space-y-4 py-2 px-4 text-sm md:block px-10 py-2 pr-40 text-red-400 cursor-pointer hover:underline">
               <Link
                 to="/Signup"
                 // spy={true}

@@ -54,7 +54,7 @@ const Footer = () => {
             type="email"
             value={email}
             placeholder="Enter your email"
-            className="ml-10 mt-5 md:ml-96 bg-blue-500 md:mt-5 md:mb-5 text-white py-2 px-4 "
+            className=" ml-10 mt-5 md:ml-96 bg-blue-500 md:mt-5 md:mb-5 text-white py-2 px-4 "
             // style={{ marginLeft: 500 }}
           />
           <button
