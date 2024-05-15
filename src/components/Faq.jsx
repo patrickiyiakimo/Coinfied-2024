@@ -91,7 +91,8 @@ const Faq = () => {
               />
             </svg>
           </span>
-          <h3 className=" pl-5 font-bold pb-10">{item.question}</h3>
+          <h3 className="mt-5 pl-5 font-bold pb-10">{item.question}</h3>
+          <hr className="border-gray-700 "/>
           {item.isAnswerVisible && (
             <span className="transition-all">
               <p className="bg-gray-800 pr-4 pl-4 pt-5 pb-5 md:px-10 md:py-10 mb-5 rounded text-gray-400 transition-transform duration-500">

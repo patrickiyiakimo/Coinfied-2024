@@ -2,7 +2,6 @@ import React from "react";
 
 
 const Coin = ({
-  
   name,
   image,
   symbol,
@@ -12,10 +11,15 @@ const Coin = ({
   marketcap,
 }) => {
   return (
-    <div className="pl-5 border-t coin-container pt-5 pb-5">
+    <div className="pl-5  coin-container pt-5 pb-5">
+      <hr className="border-gray-600 mb-5" />
       <div className="coin-row flex hover:bg-gray-800 hover:text-blue-700 hover:bg-gray-600  ">
         <div className="coin flex items-center">
-          <img className="w-5 md:w-11 md:mr-4 md:ml-40" src={image} alt="crypto" />
+          <img
+            className="w-5 md:w-11 md:mr-4 md:ml-40"
+            src={image}
+            alt="crypto"
+          />
           <p className=" text-white">{name}</p>
           <p className="text-white coin-symbol">{symbol}</p>
         </div>

@@ -42,11 +42,13 @@ const Footer = () => {
   return (
     <div id="Footer">
       <div className="footer bg-gray-700 text-white">
-        <p className="font-bold pt-5 md:pt-10 text-center ">Sign up to learn more</p>
+        <p className="font-bold pt-5 md:pt-10 text-center ">
+          Sign up to learn more
+        </p>
         <p className="text-center">
-          To sign up for Coinfied, visit the website, <br/>fill out the registration
-          form, verify your email, complete any additional steps, and log in to
-          your account.
+          To sign up for Coinfied, visit the website, <br />
+          fill out the registration form, verify your email, complete any
+          additional steps, and log in to your account.
         </p>
         <div className=" md:justify-center md:items-center">
           <input
@@ -65,7 +67,8 @@ const Footer = () => {
           </button>
         </div>
 
-        <div className=" text-center mt-20 bg-gray-600 pt-5 pb-5 shadow-lg p-6">
+        <div className=" text-center mt-20 bg-gray-700 pt-5 pb-5 shadow-lg p-6">
+          <hr className="border-gray-600 mb-5 " />
           <p>©2024 Coinfied. All rights Reserved</p>
         </div>
       </div>

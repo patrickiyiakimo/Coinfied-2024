@@ -10,7 +10,7 @@ const About = () => {
         <p className="text-blue-500 text-center md:text-center pt-5 md:pr-20 md:mr-80 md:ml-80 font-bold md:pl-80 md:pt-10 md:pb-5 text-4xl">
           About Us
         </p>
-        <p className="text-white text-center md:text-center md:ml-20 md:pl-80 text-2xl font-bold">
+        <p className=" text-white text-center md:text-center md:ml-20 md:pl-80 text-2xl font-bold">
           Accelerate the world's transition
         </p>
         <img
