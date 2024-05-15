@@ -6,6 +6,7 @@ import Market from "./components/Market";
 import SignUp from "./components/Signup";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Switch>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route exact path="/">
             <div className="hero">

@@ -1,3 +1,4 @@
+import HeroText from "./HeroText";
 
 const Hero = () => {
   return (
@@ -9,15 +10,7 @@ const Hero = () => {
           assets
         </p>
         <p className="text-white ml-7 mr-5 md:ml-20">
-          Step into the realm of digital currency with Coinfied, where
-          possibilities abound <br />
-          and opportunities await. Coinfied isn't just another platform; it's
-          your passport to the exciting world of <br />
-          cryptocurrency trading. With Coinfied, buying and selling crypto has
-          never been easier.
-          <br /> Our sleek interface guides you through every step, whether
-          you're a seasoned trader or just dipping your toes into the crypto
-          waters.
+          <HeroText />
         </p>
         <button className="transition ease-in-out duration-300 bg-gradient-to-r from-blue-500 to-gray-500 text-white font-bold py-2 px-4 ml-10 rounded hover:from-gray-500 hover:to-blue-500 md:ml-36 mt-20 mb-20">
           Get Started
