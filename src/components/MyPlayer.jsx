@@ -3,14 +3,14 @@ import video from "../video/stock-footage-financial-analyst-working-on-a-compute
 
 const MyPlayer = () => {
   return (
-    <div className=" pt-1 pl-10 bg-gray-900">
+    <div className=" pt-1 p-4 md:pl-10 bg-gray-900">
       <video
         autoplay
         muted
         width="850"
         height="600"
         controls
-        className=" rounded mt-10 pb-5 pt-20 ml-60"
+        className=" mt-10 md:pb-5 md:pt-10 md:ml-60 rounded"
       >
         <source src={video} type="video/mp4" />
       </video>

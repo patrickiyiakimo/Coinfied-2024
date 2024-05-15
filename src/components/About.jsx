@@ -1,4 +1,5 @@
 import undraw from "../images/undraw_Bitcoin_re_urgq.png";
+import MyPlayer from "./MyPlayer";
 
 
 const About = () => {
@@ -41,6 +42,7 @@ const About = () => {
           commitment to regulatory compliance ensures a trustworthy and
           compliant trading environment.
         </p>
+        <MyPlayer />
       </div>
     </div>
   );
