@@ -4,7 +4,7 @@ import { IoMdContact } from "react-icons/io";
 const Signup = () => {
   return (
     <div className="flex text-grey-400 justify-center items-center h-screen bg-gray-900">
-      <div className="w-96 p-6 shagow-lg bg-white rounded-md">
+      <div className="w-96 p-6 shadow-lg bg-white rounded-md">
         <h1 className="text-3xl text-gray-900 text-center block font-semibold">
           <IoMdContact className="text-gray-900" />
           Sign Up
