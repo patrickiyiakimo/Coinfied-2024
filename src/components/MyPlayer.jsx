@@ -10,7 +10,7 @@ const MyPlayer = () => {
         width="850"
         height="600"
         controls
-        className=" mt-10 md:pb-5 md:pt-10 md:ml-60 rounded"
+        className=" mt-10 md:pb-5 md:pt-10 md:ml-60 "
       >
         <source src={video} type="video/mp4" />
       </video>
