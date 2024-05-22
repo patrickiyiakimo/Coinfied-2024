@@ -5,7 +5,6 @@ import { FaTimes } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 
 
-
 const Navbar = () => {
   const [isSetMenu, setIsSetMenu] = React.useState(false);
 
@@ -21,7 +20,7 @@ const Navbar = () => {
             {isSetMenu ? (
               <FaTimes className="text-3xl text-red-500 ml-80 absolute mt-6 ml-5 " />
             ) : (
-              <FiMenu className="mt-6 text-3xl ml-80 absolute ml-5  " />
+              <FiMenu className="mt-6 text-3xl ml-80 absolute " />
             )}
           </button>
           {/* Logo */}
