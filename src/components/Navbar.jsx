@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-10 w-full">
-      <div className="bg-gray-900 shadow-lg text-white text-sm py-1 font-Gill fixed w-full">
+      <div className="bg-gray-900 shadow-lg text-white text-sm py-1 font-Gill fixed w-full ">
         <ul className="flex-col flex space-y-4 md:space-y-0 space-x-4 mb-10 md:mb-0 ">
           {/* Menu button for mobile */}
           <button

@@ -50,7 +50,7 @@ const Footer = () => {
           fill out the registration form, verify your email, complete any
           additional steps, and log in to your account.
         </p>
-        <div className=" md:justify-center md:items-center whitespace-nowrap">
+        <div className="justify-center md:mr-96 items-center whitespace-nowrap md:flex ">
           <input
             onChange={handleEmailChange}
             type="email"
