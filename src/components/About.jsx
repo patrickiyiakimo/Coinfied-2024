@@ -31,6 +31,9 @@ const About = () => {
         <p className="text-center text-white px-5 md:pb-20 md:px-40 ">
           <AboutText />
         </p>
+         <p className="text-center text-white px-5 md:pb-20 md:px-40 ">
+          <AboutText />
+        </p>
         <MyPlayer />
       </div>
     </div>
