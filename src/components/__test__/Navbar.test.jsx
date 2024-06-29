@@ -30,6 +30,16 @@ it("should render the content in the about page", () => {
     </MemoryRouter>
   );
 
-  const aboutElements = screen.getAllByText(/./, { selector: "p" }); // Selects all <p> elements with text
+  const aboutElements = screen.getAllByText(/./, { selector: "p" }); 
   expect(aboutElements.length).toBe(6);
 });
+
+it("should render an image tag in the about page", () => {
+    render(
+      <MemoryRouter>
+        <About />
+      </MemoryRouter>
+    );
+    const imageElement = screen.getByAltText("bitcoin-pics");
+    expect(imageElement).toBeInTheDocument();
+})
