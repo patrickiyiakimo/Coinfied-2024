@@ -25,7 +25,7 @@ const Navbar = () => {
           </button>
           {/* Logo */}
           <li>
-            <h1 className="text-4xl font-bold md:flex md:items-center">
+            <h1 title="header" className="text-4xl font-bold md:flex md:items-center">
               Coinfied
             </h1>
           </li>
