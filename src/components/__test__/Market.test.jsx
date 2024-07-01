@@ -1,6 +1,3 @@
-// import { render, screen, waitFor } from "@testing-library/react";
-// import { MemoryRouter } from "react-router-dom";
-// import Market from "../Market";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Market from "../Market";
