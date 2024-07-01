@@ -1,7 +1,9 @@
 // import { render, screen, waitFor } from "@testing-library/react";
 // import { MemoryRouter } from "react-router-dom";
 // import Market from "../Market";
-
+import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import Market from "../Market";
 // it("should render the market title", async () => {
 //   render(
 //     <MemoryRouter>
@@ -25,9 +27,7 @@
 //   expect(marketElement).toBeInTheDocument();
 // });
 
-import { render, screen, fireEvent } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import Market from "../Market";
+
 
 it("should render the market title", async () => {
   render(
