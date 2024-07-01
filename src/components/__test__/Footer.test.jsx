@@ -9,7 +9,6 @@ it("should render the Sign up to learn more text", async () => {
     </MemoryRouter>
   );
 
- 
   const footerElement = await screen.findByText("Sign up to learn more");
   expect(footerElement).toBeInTheDocument();
 });
