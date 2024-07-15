@@ -25,9 +25,17 @@ describe("Faq Component", () => {
     });
 
     // Check if answers are hidden initially
-    const answers = screen.queryAllByText(/Coinfied/i);
+    const answers = [
+      /Coinfied is a cutting-edge web application/i,
+      /Create an account on Coinfied's website/i,
+      /Certainly! You can customize Coinfied according to your preferences/i,
+      /Yes, Coinfied likely offers analytics tools/i,
+      /Coinfied, like any platform, may have its set of limitations/i,
+      /Coinfied prioritizes security to safeguard user accounts/i,
+    ];
+
     answers.forEach((answer) => {
-      expect(answer).not.toBeVisible();
+      expect(screen.queryByText(answer)).not.toBeInTheDocument();
     });
   });
 
