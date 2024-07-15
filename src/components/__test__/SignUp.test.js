@@ -59,6 +59,6 @@ describe("Signup Component", () => {
     const submitButton = screen.getByRole("button", { name: /submit/i });
     fireEvent.click(submitButton);
 
-    // Additional assertions can be added here based on submit functionality
+   
   });
 });

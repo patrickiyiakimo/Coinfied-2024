@@ -1,9 +1,7 @@
-import React from 'react'
-
+import React from "react";
 const HeroText = () => {
   return (
     <div>
- 
       Step into the realm of digital currency with Coinfied, where possibilities
       abound <br />
       and opportunities await. Coinfied isn't just another platform; it's your
@@ -14,6 +12,5 @@ const HeroText = () => {
       seasoned trader or just dipping your toes into the crypto waters.
     </div>
   );
-}
-
-export default HeroText
+};
+export default HeroText;

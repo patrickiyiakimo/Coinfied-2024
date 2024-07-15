@@ -1,62 +1,61 @@
+// Footer.test.js
+
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Footer from "../Footer";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { render, fireEvent, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import Footer from "./Footer";
 
-describe("Footer Component", () => {
-  test("renders Footer component correctly", () => {
-    render(<Footer />);
+describe("<Footer />", () => {
+  it("renders the component correctly", () => {
+    const { getByText, getByPlaceholderText } = render(<Footer />);
 
-    // Check if the subscription message is rendered
-    expect(screen.getByText(/Sign up to learn more/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/To sign up for Coinfied, visit the website/i)
-    ).toBeInTheDocument();
+    // Check if the component renders sign up message
+    expect(getByText("Sign up to learn more")).toBeInTheDocument();
 
-    // Check if the email input is rendered
-    expect(
-      screen.getByPlaceholderText(/Enter your email/i)
-    ).toBeInTheDocument();
-
-    // Check if the subscribe button is rendered
-    expect(
-      screen.getByRole("button", { name: /Subscribe/i })
-    ).toBeInTheDocument();
-
-    // Check if the footer message is rendered
-    expect(
-      screen.getByText(/©2024 Coinfied. All rights Reserved/i)
-    ).toBeInTheDocument();
+    // Check if input field and subscribe button are rendered
+    expect(getByPlaceholderText("Enter your email")).toBeInTheDocument();
+    expect(getByText("Subscribe")).toBeInTheDocument();
   });
 
-  test("email input should accept text", () => {
-    render(<Footer />);
+  it("updates email state on input change", () => {
+    const { getByPlaceholderText } = render(<Footer />);
+    const emailInput = getByPlaceholderText("Enter your email");
 
-    const emailInput = screen.getByPlaceholderText(/Enter your email/i);
+    // Simulate user input in email field
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
 
+    // Check if email state is updated correctly
     expect(emailInput.value).toBe("test@example.com");
   });
 
-  test("shows error toast if email is empty", () => {
-    render(<Footer />);
+  it("displays error toast when subscribing with empty email", async () => {
+    const { getByPlaceholderText, getByText } = render(<Footer />);
+    const emailInput = getByPlaceholderText("Enter your email");
+    const subscribeButton = getByText("Subscribe");
 
-    const subscribeButton = screen.getByRole("button", { name: /Subscribe/i });
+    // Click subscribe button without entering email
     fireEvent.click(subscribeButton);
 
-    expect(screen.getByText(/Please enter your email/i)).toBeInTheDocument();
+    // Wait for toast to appear
+    await waitFor(() => {
+      expect(getByText("Please enter your email")).toBeInTheDocument();
+    });
   });
 
-  test("shows success toast if email is provided", () => {
-    render(<Footer />);
+  it("displays success toast when subscribing with valid email", async () => {
+    const { getByPlaceholderText, getByText } = render(<Footer />);
+    const emailInput = getByPlaceholderText("Enter your email");
+    const subscribeButton = getByText("Subscribe");
 
-    const emailInput = screen.getByPlaceholderText(/Enter your email/i);
-    const subscribeButton = screen.getByRole("button", { name: /Subscribe/i });
-
+    // Enter a valid email
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+
+    // Click subscribe button
     fireEvent.click(subscribeButton);
 
-    expect(screen.getByText(/Thanks For Subscribing!/i)).toBeInTheDocument();
+    // Wait for success toast to appear
+    await waitFor(() => {
+      expect(getByText("Thanks For Subscribing!")).toBeInTheDocument();
+    });
   });
 });

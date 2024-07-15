@@ -21,7 +21,7 @@ describe("Navbar Component", () => {
   test("toggles menu visibility on button click", () => {
     const menuButton = screen.getByRole("button");
 
-    // Initially, the menu should be hidden
+  
     expect(screen.queryByText(/Home/i)).toBeNull();
 
     // Click to show the menu
