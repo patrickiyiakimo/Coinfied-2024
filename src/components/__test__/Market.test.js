@@ -1,112 +1,98 @@
-// import { render, screen, fireEvent } from "@testing-library/react";
-// import { MemoryRouter } from "react-router-dom";
-// import Market from "../Market";
-// // it("should render the market title", async () => {
-// //   render(
-// //     <MemoryRouter>
-// //       <Market />
-// //     </MemoryRouter>
-// //   );
-
-// //   await waitFor(() => {
-// //     const marketElement = screen.getByText("Market Price");
-// //     expect(marketElement).toBeInTheDocument();
-// //   });
-// // });
-
-// // it("should render the market sub-title", async () => {
-// //   render(
-// //     <MemoryRouter>
-// //       <Market />
-// //     </MemoryRouter>
-// //   );
-// //   const marketElement = screen.getByText("Search a currency");
-// //   expect(marketElement).toBeInTheDocument();
-// // });
-
-
-
-// it("should render the market title", async () => {
-//   render(
-//     <MemoryRouter>
-//       <Market />
-//     </MemoryRouter>
-//   );
-
-//   await waitFor(() => {
-//     const marketElement = screen.getByText("Market Price");
-//     expect(marketElement).toBeInTheDocument();
-//   });
-// });
-
-// it("should render the market sub-title", async () => {
-//   render(
-//     <MemoryRouter>
-//       <Market />
-//     </MemoryRouter>
-//   );
-//   const marketElement = screen.getByText("Search a currency");
-//   expect(marketElement).toBeInTheDocument();
-// });
-
-// it("should render the input field", () => {
-//   render(
-//     <MemoryRouter>
-//       <Market />
-//     </MemoryRouter>
-//   );
-
-//   const inputElement = screen.getByPlaceholderText("search");
-//   expect(inputElement).toBeInTheDocument();
-// });
-
-// it("should update the input value on change", () => {
-//   render(
-//     <MemoryRouter>
-//       <Market />
-//     </MemoryRouter>
-//   );
-
-//   const inputElement = screen.getByPlaceholderText("search");
-//   fireEvent.change(inputElement, { target: { value: "bitcoin" } });
-//   expect(inputElement.value).toBe("bitcoin");
-// });
-
-
-
-
-
-
-// FAQ section
-
-// import { render, screen, waitFor } from "@testing-library/react";
-// import { MemoryRouter } from "react-router-dom";
-// import Faq from "./Faq"; // Adjust the import path as needed
-
-// it("should render the FAQ title", async () => {
-//   render(
-//     <MemoryRouter>
-//       <Faq />
-//     </MemoryRouter>
-//   );
-
-//   // Use findBy instead of waitFor to automatically wait for the element to appear
-//   const faqElement = await screen.findByText("FAQ");
-//   expect(faqElement).toBeInTheDocument();
-// });
-
-
-
-import { MemoryRouter } from "react-router-dom";
+import React from "react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import axios from "axios";
 import Market from "../Market";
+import Coin from "../Coin";
 
+// Mock axios
+jest.mock("axios");
 
-it("should render the navbar title", async () => {
-  render(
-    <MemoryRouter>
-      <Market />
-    </MemoryRouter>
+// Mock Coin component
+jest.mock("../Coin", () => {
+  return ({ name, image, symbol, marketcap, price, priceChange }) => (
+    <div data-testid="coin">
+      <p>{name}</p>
+      <p>{symbol}</p>
+      <p>{marketcap}</p>
+      <p>{price}</p>
+      <p>{priceChange}</p>
+    </div>
   );
-  const marketElement = screen.getByTitle("Market Price");
-  expect(marketElement).toBeInTheDocument();
+});
+
+const mockCoins = [
+  {
+    id: "bitcoin",
+    name: "Bitcoin",
+    image: "bitcoin.png",
+    symbol: "btc",
+    market_cap: 1000000,
+    current_price: 50000,
+    price_change_percentage_24h: 2.5,
+  },
+  {
+    id: "ethereum",
+    name: "Ethereum",
+    image: "ethereum.png",
+    symbol: "eth",
+    market_cap: 500000,
+    current_price: 2500,
+    price_change_percentage_24h: -1.2,
+  },
+  // Add more mock data if necessary
+];
+
+describe("Market Component", () => {
+  beforeEach(() => {
+    axios.get.mockResolvedValue({ data: mockCoins });
+  });
+
+  test("renders Market component and fetches data", async () => {
+    render(<Market />);
+
+    expect(screen.getByText(/Market Price/i)).toBeInTheDocument();
+    expect(screen.getByText(/Search a currency/i)).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("coin").length).toBe(mockCoins.length);
+    });
+  });
+
+  test("search functionality works correctly", async () => {
+    render(<Market />);
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("coin").length).toBe(mockCoins.length);
+    });
+
+    const searchInput = screen.getByPlaceholderText(/search/i);
+    fireEvent.change(searchInput, { target: { value: "bitcoin" } });
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("coin").length).toBe(1);
+      expect(screen.getByText("Bitcoin")).toBeInTheDocument();
+    });
+  });
+
+  test("pagination works correctly", async () => {
+    render(<Market />);
+
+    await waitFor(() => {
+      expect(screen.getAllByTestId("coin").length).toBe(mockCoins.length);
+    });
+
+    // Initially, the first page should be displayed
+    expect(screen.getByText("Bitcoin")).toBeInTheDocument();
+    expect(screen.getByText("Ethereum")).toBeInTheDocument();
+
+    // Simulate clicking the second page
+    const nextPageButton = screen.getByText("2");
+    fireEvent.click(nextPageButton);
+
+    // In this mock setup, there are no coins for the second page, so none should be displayed
+    await waitFor(() => {
+      expect(screen.queryByText("Bitcoin")).not.toBeInTheDocument();
+      expect(screen.queryByText("Ethereum")).not.toBeInTheDocument();
+    });
+  });
 });
