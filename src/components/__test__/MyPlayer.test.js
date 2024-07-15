@@ -12,7 +12,7 @@ describe("MyPlayer Component", () => {
   test("renders the video player with correct attributes", () => {
     render(<MyPlayer />);
 
-    const videoElement = screen.getByRole("video");
+    const videoElement = screen.getByTestId("video-player");
 
     expect(videoElement).toBeInTheDocument();
     expect(videoElement).toHaveAttribute("autoplay");
@@ -25,7 +25,9 @@ describe("MyPlayer Component", () => {
   test("renders the video source correctly", () => {
     render(<MyPlayer />);
 
-    const sourceElement = screen.getByRole("video").querySelector("source");
+    const sourceElement = screen
+      .getByTestId("video-player")
+      .querySelector("source");
 
     expect(sourceElement).toBeInTheDocument();
     expect(sourceElement).toHaveAttribute("src", "video.mp4");

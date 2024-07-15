@@ -1,45 +1,71 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "../Navbar";
-import About from "../About";
+import { MemoryRouter } from "react-router-dom";
+import { act } from "react-dom/test-utils";
 
-it("should render the navbar title", async () => {
-  render(
-    <MemoryRouter>
-      <Navbar />
-    </MemoryRouter>
-  );
-  const navbarElement = screen.getByTitle("header");
-  expect(navbarElement).toBeInTheDocument();
-});
-
-it("should render all the navbar list items in the navbar component", async () => {
-  render(
-    <MemoryRouter>
-      <Navbar />
-    </MemoryRouter>
-  );
-  const navbarElements = screen.getAllByRole("listitem");
-  expect(navbarElements.length).toBe(8);
-});
-
-it("should render the content in the about page", () => {
-  render(
-    <MemoryRouter>
-      <About />
-    </MemoryRouter>
-  );
-
-  const aboutElements = screen.getAllByText(/./, { selector: "p" }); 
-  expect(aboutElements.length).toBe(6);
-});
-
-it("should render an image tag in the about page", () => {
+describe("Navbar Component", () => {
+  beforeEach(() => {
     render(
       <MemoryRouter>
-        <About />
+        <Navbar />
       </MemoryRouter>
     );
-    const imageElement = screen.getByAltText("bitcoin-pics");
-    expect(imageElement).toBeInTheDocument();
-})
+  });
+
+  test("renders Navbar component", () => {
+    expect(screen.getByTitle("header")).toBeInTheDocument();
+    expect(screen.getByText(/Coinfied/i)).toBeInTheDocument();
+  });
+
+  test("toggles menu visibility on button click", () => {
+    const menuButton = screen.getByRole("button");
+
+    // Initially, the menu should be hidden
+    expect(screen.queryByText(/Home/i)).toBeNull();
+
+    // Click to show the menu
+    act(() => {
+      fireEvent.click(menuButton);
+    });
+    expect(screen.getByText(/Home/i)).toBeInTheDocument();
+
+    // Click to hide the menu
+    act(() => {
+      fireEvent.click(menuButton);
+    });
+    expect(screen.queryByText(/Home/i)).toBeNull();
+  });
+
+  test("contains navigation links", () => {
+    const menuButton = screen.getByRole("button");
+
+    // Show the menu to check the links
+    act(() => {
+      fireEvent.click(menuButton);
+    });
+
+    expect(screen.getByText(/Home/i)).toBeInTheDocument();
+    expect(screen.getByText(/About/i)).toBeInTheDocument();
+    expect(screen.getByText(/Market/i)).toBeInTheDocument();
+    expect(screen.getByText(/FAQ/i)).toBeInTheDocument();
+    expect(screen.getByText(/Subscribe/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sign Up/i)).toBeInTheDocument();
+    expect(screen.getByText(/Log In/i)).toBeInTheDocument();
+  });
+
+  test("checks smooth scroll links configuration", () => {
+    const menuButton = screen.getByRole("button");
+
+    // Show the menu to check the links
+    act(() => {
+      fireEvent.click(menuButton);
+    });
+
+    expect(screen.getByText(/Home/i)).toHaveAttribute("to", "Hero");
+    expect(screen.getByText(/About/i)).toHaveAttribute("to", "About");
+    expect(screen.getByText(/Market/i)).toHaveAttribute("to", "Market");
+    expect(screen.getByText(/FAQ/i)).toHaveAttribute("to", "faq");
+    expect(screen.getByText(/Subscribe/i)).toHaveAttribute("to", "Footer");
+  });
+});
