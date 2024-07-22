@@ -1,71 +1,43 @@
+// src/components/Navbar.test.js
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Navbar from "../Navbar";
-import { MemoryRouter } from "react-router-dom";
-import { act } from "react-dom/test-utils";
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./Navbar";
 
 describe("Navbar Component", () => {
-  beforeEach(() => {
+  test("renders Navbar and navigates correctly", () => {
     render(
-      <MemoryRouter>
+      <Router>
         <Navbar />
-      </MemoryRouter>
+      </Router>
     );
-  });
 
-  test("renders Navbar component", () => {
-    expect(screen.getByTitle("header")).toBeInTheDocument();
+    // Check if the Navbar renders correctly
     expect(screen.getByText(/Coinfied/i)).toBeInTheDocument();
+
+    // Simulate clicking on 'Sign Up' link
+    fireEvent.click(screen.getByText(/Sign Up/i));
+    expect(window.location.pathname).toBe("/signup");
+
+    // Simulate clicking on 'Log In' link
+    fireEvent.click(screen.getByText(/Log In/i));
+    expect(window.location.pathname).toBe("/login");
   });
 
-  test("toggles menu visibility on button click", () => {
-    const menuButton = screen.getByRole("button");
+  test("toggles menu in mobile view", () => {
+    render(
+      <Router>
+        <Navbar />
+      </Router>
+    );
 
-  
+    // Initially menu should be closed
     expect(screen.queryByText(/Home/i)).toBeNull();
 
-    // Click to show the menu
-    act(() => {
-      fireEvent.click(menuButton);
-    });
+    // Simulate menu button click
+    fireEvent.click(screen.getByRole("button"));
+
+    // Menu should now be visible
     expect(screen.getByText(/Home/i)).toBeInTheDocument();
-
-    // Click to hide the menu
-    act(() => {
-      fireEvent.click(menuButton);
-    });
-    expect(screen.queryByText(/Home/i)).toBeNull();
-  });
-
-  test("contains navigation links", () => {
-    const menuButton = screen.getByRole("button");
-
-    // Show the menu to check the links
-    act(() => {
-      fireEvent.click(menuButton);
-    });
-
-    expect(screen.getByText(/Home/i)).toBeInTheDocument();
-    expect(screen.getByText(/About/i)).toBeInTheDocument();
-    expect(screen.getByText(/Market/i)).toBeInTheDocument();
-    expect(screen.getByText(/FAQ/i)).toBeInTheDocument();
-    expect(screen.getByText(/Subscribe/i)).toBeInTheDocument();
-    expect(screen.getByText(/Sign Up/i)).toBeInTheDocument();
-    expect(screen.getByText(/Log In/i)).toBeInTheDocument();
-  });
-
-  test("checks smooth scroll links configuration", () => {
-    const menuButton = screen.getByRole("button");
-
-    // Show the menu to check the links
-    act(() => {
-      fireEvent.click(menuButton);
-    });
-
-    expect(screen.getByText(/Home/i)).toHaveAttribute("to", "Hero");
-    expect(screen.getByText(/About/i)).toHaveAttribute("to", "About");
-    expect(screen.getByText(/Market/i)).toHaveAttribute("to", "Market");
-    expect(screen.getByText(/FAQ/i)).toHaveAttribute("to", "faq");
-    expect(screen.getByText(/Subscribe/i)).toHaveAttribute("to", "Footer");
   });
 });

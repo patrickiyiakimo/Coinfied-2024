@@ -1,54 +1,61 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import About from "../About";
-import AboutText from "../AboutText";
-import MyPlayer from "../MyPlayer";
+import About from "./About"; // Ensure the path is correct
+import undraw from "../images/undraw_Bitcoin_re_urgq.png";
 
-// Mock the AboutText and MyPlayer components
-jest.mock("../AboutText", () => () => <div>Mock AboutText</div>);
-jest.mock("../MyPlayer", () => () => <div>Mock MyPlayer</div>);
+// Mocking AboutText and MyPlayer components
+jest.mock("./AboutText", () => () => <div>About Text Content</div>);
+jest.mock("./MyPlayer", () => () => <div>MyPlayer Content</div>);
 
 describe("About Component", () => {
-  test("renders About Us section correctly", () => {
+  test("renders About Us title", () => {
     render(<About />);
+    expect(screen.getByText("About Us")).toBeInTheDocument();
+  });
 
-    // Check if the "About Us" header is rendered
-    expect(screen.getByText(/About Us/i)).toBeInTheDocument();
+  test("renders the main description text", () => {
+    render(<About />);
     expect(
-      screen.getByText(/Accelerate the world's transition/i)
+      screen.getByText("Accelerate the world's transition")
     ).toBeInTheDocument();
   });
 
-  test("displays the image with the correct alt text", () => {
+  test("renders the image with correct src and alt attributes", () => {
     render(<About />);
-
-    // Check if the image is rendered with the correct alt text
-    const image = screen.getByAltText("bitcoin-pics");
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("src", "undraw_Bitcoin_re_urgq.png");
+    const imgElement = screen.getByAltText("bitcoin-pics");
+    expect(imgElement).toBeInTheDocument();
+    expect(imgElement).toHaveAttribute("src", undraw);
   });
 
-  test("renders Why Choose Us section correctly", () => {
+  test("renders the detailed description text", () => {
     render(<About />);
-
-    // Check if the "Why Choose Us" header is rendered
-    expect(screen.getByText(/Why Choose Us/i)).toBeInTheDocument();
     expect(
-      screen.getByText(/Safe, guaranteed and easy to use/i)
+      screen.getByText(
+        "Coinfied is a web application designed as a go-to platform for buying and selling cryptocurrency. It offers a user-friendly interface, robust security measures, and a diverse selection of cryptocurrencies. Real-time market data, mobile accessibility, and advanced trading tools enhance the trading experience. Dedicated customer support ensures assistance whenever needed. Coinfied prioritizes regulatory compliance, providing a trustworthy environment for cryptocurrency trading."
+      )
+    ).toBeInTheDocument();
+  });
+
+  test("renders Why Choose Us title", () => {
+    render(<About />);
+    expect(screen.getByText("Why Choose Us")).toBeInTheDocument();
+  });
+
+  test("renders the slogan text", () => {
+    render(<About />);
+    expect(
+      screen.getByText("Safe, guaranteed and easy to use")
     ).toBeInTheDocument();
   });
 
   test("renders AboutText components", () => {
     render(<About />);
-
-    // Check if the AboutText components are rendered
-    expect(screen.getAllByText(/Mock AboutText/i)).toHaveLength(2);
+    const aboutTextElements = screen.getAllByText("About Text Content");
+    expect(aboutTextElements.length).toBe(2);
   });
 
   test("renders MyPlayer component", () => {
     render(<About />);
-
-    // Check if the MyPlayer component is rendered
-    expect(screen.getByText(/Mock MyPlayer/i)).toBeInTheDocument();
+    expect(screen.getByText("MyPlayer Content")).toBeInTheDocument();
   });
 });

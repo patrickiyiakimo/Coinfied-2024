@@ -1,53 +1,75 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+// App.test.js
+import { render, screen, fireEvent } from "@testing-library/react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./App";
-
-// Mocking components used in App
-jest.mock("./components/Navbar", () => () => <div>Navbar</div>);
-jest.mock("./components/Hero", () => () => <div>Hero</div>);
-jest.mock("./components/About", () => () => <div>About</div>);
-jest.mock("./components/Market", () => () => <div>Market</div>);
-jest.mock("./components/Faq", () => () => <div>Faq</div>);
-jest.mock("./components/Footer", () => () => <div>Footer</div>);
-jest.mock("./components/Signup", () => () => <div>SignUp</div>);
-jest.mock("./components/Login", () => () => <div>Login</div>);
+import SignUp from "./components/Signup";
+import Login from "./components/Login";
+import { expect } from "@jest/globals";
 
 describe("App Component", () => {
-  test("renders Navbar and all sections for the home page route", () => {
+  test("renders Navbar, Hero, About, Market, Faq, and Footer on the homepage", () => {
     render(
-      <BrowserRouter>
+      <Router>
         <App />
-      </BrowserRouter>
+      </Router>
     );
 
-    expect(screen.getByText(/Navbar/i)).toBeInTheDocument();
-    expect(screen.getByText(/Hero/i)).toBeInTheDocument();
-    expect(screen.getByText(/About/i)).toBeInTheDocument();
+    // Check if Navbar is rendered
+    expect(screen.getByText(/Coinfied/i)).toBeInTheDocument();
+
+    // Check if Hero section is rendered
+    expect(
+      screen.getByText(/Best place to buy and sell Crypto Currency assets/i)
+    ).toBeInTheDocument();
+
+    // Check if About section is rendered
+    expect(
+      screen.getByText(/To sign up for Coinfied, visit the website/i)
+    ).toBeInTheDocument();
+
+    // Check if Market section is rendered
     expect(screen.getByText(/Market/i)).toBeInTheDocument();
-    expect(screen.getByText(/Faq/i)).toBeInTheDocument();
-    expect(screen.getByText(/Footer/i)).toBeInTheDocument();
+
+    // Check if FAQ section is rendered
+    expect(screen.getByText(/FAQ/i)).toBeInTheDocument();
+
+    // Check if Footer is rendered
+    expect(
+      screen.getByText(/©2024 Coinfied. All rights Reserved/i)
+    ).toBeInTheDocument();
   });
 
-  test("renders SignUp component for /signup route", () => {
-    window.history.pushState({}, "Test Page", "/signup");
+  test("navigates to Sign Up page", () => {
     render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </Router>
     );
 
-    expect(screen.getByText(/SignUp/i)).toBeInTheDocument();
+    // Simulate navigation to /signup
+    fireEvent.click(screen.getByText(/Sign Up/i));
+
+    // Check if SignUp component is rendered
+    expect(screen.getByText(/Sign Up/i)).toBeInTheDocument();
   });
 
-  test("renders Login component for /login route", () => {
-    window.history.pushState({}, "Test Page", "/login");
+  test("navigates to Login page", () => {
     render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
     );
 
-    expect(screen.getByText(/Login/i)).toBeInTheDocument();
+    // Simulate navigation to /login
+    fireEvent.click(screen.getByText(/Log In/i));
+
+    // Check if Login component is rendered
+    expect(screen.getByText(/Log In/i)).toBeInTheDocument();
   });
 });

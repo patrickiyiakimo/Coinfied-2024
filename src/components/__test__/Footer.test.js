@@ -1,61 +1,73 @@
-// Footer.test.js
-
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Footer from "./Footer";
+import { ToastContainer, toast } from "react-toastify";
 
-describe("<Footer />", () => {
-  it("renders the component correctly", () => {
-    const { getByText, getByPlaceholderText } = render(<Footer />);
+// Mock toastify module to prevent actual toasts in tests
+jest.mock("react-toastify", () => ({
+  toast: {
+    success: jest.fn(),
+    error: jest.fn(),
+  },
+  ToastContainer: () => <div />,
+}));
 
-    // Check if the component renders sign up message
-    expect(getByText("Sign up to learn more")).toBeInTheDocument();
-
-    // Check if input field and subscribe button are rendered
-    expect(getByPlaceholderText("Enter your email")).toBeInTheDocument();
-    expect(getByText("Subscribe")).toBeInTheDocument();
+describe("Footer Component", () => {
+  test("renders Footer component correctly", () => {
+    render(<Footer />);
+    expect(screen.getByText("Sign up to learn more")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /To sign up for Coinfied, visit the website, fill out the registration form, verify your email, complete any additional steps, and log in to your account./i
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Enter your email")).toBeInTheDocument();
+    expect(screen.getByText("Subscribe")).toBeInTheDocument();
+    expect(
+      screen.getByText("©2024 Coinfied. All rights Reserved")
+    ).toBeInTheDocument();
   });
 
-  it("updates email state on input change", () => {
-    const { getByPlaceholderText } = render(<Footer />);
-    const emailInput = getByPlaceholderText("Enter your email");
-
-    // Simulate user input in email field
+  test("handles email input change", () => {
+    render(<Footer />);
+    const emailInput = screen.getByPlaceholderText("Enter your email");
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
-
-    // Check if email state is updated correctly
     expect(emailInput.value).toBe("test@example.com");
   });
 
-  it("displays error toast when subscribing with empty email", async () => {
-    const { getByPlaceholderText, getByText } = render(<Footer />);
-    const emailInput = getByPlaceholderText("Enter your email");
-    const subscribeButton = getByText("Subscribe");
-
-    // Click subscribe button without entering email
+  test("shows error toast when subscribing with empty email", () => {
+    render(<Footer />);
+    const subscribeButton = screen.getByText("Subscribe");
     fireEvent.click(subscribeButton);
-
-    // Wait for toast to appear
-    await waitFor(() => {
-      expect(getByText("Please enter your email")).toBeInTheDocument();
+    expect(toast.error).toHaveBeenCalledWith("Please enter your email", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
     });
   });
 
-  it("displays success toast when subscribing with valid email", async () => {
-    const { getByPlaceholderText, getByText } = render(<Footer />);
-    const emailInput = getByPlaceholderText("Enter your email");
-    const subscribeButton = getByText("Subscribe");
+  test("shows success toast when subscribing with a valid email", () => {
+    render(<Footer />);
+    const emailInput = screen.getByPlaceholderText("Enter your email");
+    const subscribeButton = screen.getByText("Subscribe");
 
-    // Enter a valid email
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
-
-    // Click subscribe button
     fireEvent.click(subscribeButton);
 
-    // Wait for success toast to appear
-    await waitFor(() => {
-      expect(getByText("Thanks For Subscribing!")).toBeInTheDocument();
+    expect(toast.success).toHaveBeenCalledWith("Thanks For Subscribing!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
     });
   });
 });
