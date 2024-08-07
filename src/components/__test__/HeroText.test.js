@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import HeroText from "./HeroText";
+import HeroText from "../HeroText";
 
 describe("HeroText Component", () => {
   test("renders HeroText component correctly", () => {

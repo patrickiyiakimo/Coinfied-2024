@@ -2,7 +2,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 
 describe("Navbar Component", () => {
   test("renders Navbar and navigates correctly", () => {

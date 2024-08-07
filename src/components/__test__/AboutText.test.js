@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import AboutText from "../AboutText";
 
+
 describe("AboutText Component", () => {
   test("renders the AboutText component", () => {
     render(<AboutText />);

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import { ToastContainer, toast } from "react-toastify";
 
 // Mock toastify module to prevent actual toasts in tests

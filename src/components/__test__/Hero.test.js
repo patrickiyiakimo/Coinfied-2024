@@ -1,10 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect"; // for toBeInTheDocument matcher
-import Hero from "./Hero";
+import Hero from "../Hero";
+import HeroText from "../HeroText";
 
 // Mocking the HeroText component
-jest.mock("./HeroText", () => () => <div>Mocked Hero Text</div>);
+jest.mock("../HeroText", () => () => <div>Mocked Hero Text</div>);
 
 describe("Hero Component", () => {
   beforeEach(() => {

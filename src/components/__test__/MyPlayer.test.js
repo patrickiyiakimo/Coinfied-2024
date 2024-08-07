@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import MyPlayer from "./MyPlayer";
+import MyPlayer from "../MyPlayer";
 
 describe("<MyPlayer />", () => {
   it("renders the component correctly", () => {

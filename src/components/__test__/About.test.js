@@ -1,11 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import About from "./About"; // Ensure the path is correct
-import undraw from "../images/undraw_Bitcoin_re_urgq.png";
+import About from "../About"; // Ensure the path is correct
+import undraw from "../../images/undraw_Bitcoin_re_urgq.png";
 
 // Mocking AboutText and MyPlayer components
-jest.mock("./AboutText", () => () => <div>About Text Content</div>);
-jest.mock("./MyPlayer", () => () => <div>MyPlayer Content</div>);
+jest.mock("../AboutText", () => () => <div>About Text Content</div>);
+jest.mock("../MyPlayer", () => () => <div>MyPlayer Content</div>);
 
 describe("About Component", () => {
   test("renders About Us title", () => {
