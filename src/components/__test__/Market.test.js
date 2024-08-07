@@ -86,10 +86,10 @@
 //   });
 // });
 
+import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import axios from "axios";
 import Market from "../Market";
-import React from "react";
 
 // Mock axios
 jest.mock("axios");
